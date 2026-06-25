@@ -203,7 +203,7 @@ async function verificarTipoMarcacion() {
   } catch {
     tipoMarcacion.value = 'ENTRADA'
     paso.value = 'camara'
-    await iniciarCamara()
+    await iniciarCamara() 
   }
 }
 
@@ -252,6 +252,7 @@ async function intentarMarcacion() {
     if (geoLongitud.value !== null) payload.longitud = geoLongitud.value
 
     const { data } = await api.post('/api/reconocimiento/verificar/', payload)
+    
 
     detenerCamara()
 
@@ -273,6 +274,14 @@ async function intentarMarcacion() {
       ubicacion: data.ubicacion || {},
     }
     paso.value = 'resultado'
+ // ➔ REEMPLAZA EL SETTIMEOUT ANTERIOR POR ESTE BLOQUE:
+    if (data.mensaje.includes('correctamente') || data.success || vaAsistencia) {
+        setTimeout(() => {
+            detenerCamara()
+            router.push('/trabajador/panel')
+        }, 3000)
+    }
+
 
   } catch (e) {
     detectando.value = false

@@ -12,7 +12,11 @@
   justify-content: center;
   align-items: flex-end;  
   padding-bottom: 30px;   
-  min-height: 100vh; 
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('@/assets/imagen/trabajadores-login.webp');
+  backdrop-filter: blur(3px);
+
+ 
 }
 
 @keyframes gradient {
@@ -22,8 +26,8 @@
 }
 
 .login-card {
-  backdrop-filter: blur(9px);
-  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   z-index: 10;
@@ -32,6 +36,9 @@
   max-width: 420px;
   text-align: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  color: #1a1a1a; /* Cambia las letras a un color oscuro legible */
+
+  
 }
 
 .logo {
